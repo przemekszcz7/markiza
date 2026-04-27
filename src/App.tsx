@@ -51,6 +51,16 @@ const GALLERY_ITEMS = [
     url: "https://scontent-waw2-1.xx.fbcdn.net/v/t39.30808-6/675038926_1590889396369604_8198700547446750299_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=7b2446&_nc_ohc=pXzw29mkbNsQ7kNvwG_DHsE&_nc_oc=AdrbKdxrdAGq6r39h2PURFHW4sH6Ao6qaC7OOmGmCoJcZpa5zUpidbyopNSu6d4n0e4&_nc_zt=23&_nc_ht=scontent-waw2-1.xx&_nc_gid=iuvX6zSMyJY-7qndzQNQow&_nc_ss=7b2a8&oh=00_Af3Qm2uyS6KKJCxE_u8OyA9-7BDmo9ZzZNZyHJPZjFpYTw&oe=69F502F9",
     desc: "Nasze pyszne słodkości zapraszają!",
     title: "Słodkie Momenty"
+  },
+  {
+    url: "https://scontent-waw2-1.xx.fbcdn.net/v/t39.30808-6/675222681_1590886029703274_7093111006965015298_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=7b2446&_nc_ohc=0jYBa9zKl9UQ7kNvwFqvyPb&_nc_oc=Adq-n0UxX_ZpuId9uDIH_--FSDJmTq0Kn9jPuNANg8PGal12Qrdpny4HYJ2hfOhk_IM&_nc_zt=23&_nc_ht=scontent-waw2-1.xx&_nc_gid=jNIgs0qsVqiKqE6FHZzXVw&_nc_ss=7b2a8&oh=00_Af2o_3Loc8sxylUVkvp-wbt_YiXYziHdAE6JMV_9sKpBYg&oe=69F526B1",
+    desc: "Torty na każdą okazję",
+    title: "Nasze Wypieki"
+  },
+  {
+    url: "https://scontent-waw2-1.xx.fbcdn.net/v/t39.30808-6/673637581_1590885869703290_879129294985415209_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=7b2446&_nc_ohc=YrytqgXZ2EQQ7kNvwEd-whG&_nc_oc=AdoBi0mMqMF8ASFzRudTm1XnXRYpw5Vu-yp-rZmuMTlwskZwOY0f4fzOsN-24LRJtXA&_nc_zt=23&_nc_ht=scontent-waw2-1.xx&_nc_gid=_GWijjvq9fWBakGtV7G3_w&_nc_ss=7b2a8&oh=00_Af3OLd84Wgg_nyn61L3NUxK978MIaJ2BpxiORYDAEWjYXA&oe=69F50635",
+    desc: "Idealne desery lodowe",
+    title: "Lody Naturalne"
   }
 ];
 
@@ -135,11 +145,32 @@ export default function App() {
 
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden pt-20">
+        {/* Floating background elements */}
+        <motion.div 
+          animate={{ 
+            y: [0, -20, 0],
+            rotate: [0, 5, 0]
+          }}
+          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute top-1/4 left-1/4 w-64 h-64 bg-brand-accent/10 blur-[100px] rounded-full"
+        />
+        <motion.div 
+          animate={{ 
+            y: [0, 20, 0],
+            rotate: [0, -10, 0]
+          }}
+          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+          className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-brand-soft-green/20 blur-[100px] rounded-full"
+        />
+
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-brand-coffee/20 z-10" />
-          <img 
+          <motion.img 
+            initial={{ scale: 1.1 }}
+            animate={{ scale: 1 }}
+            transition={{ duration: 1.5, ease: "easeOut" }}
             src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAG-l6ED5mMRiFckL7rGe-PDwM7UGjAR_3LKDUkdmky60Uv6Ji5CEfUDQPf8TlYriCjtbL5XCCyJSZp4V3AyYHatx2-YoY4RXrMPTsUnwfv-qFHPIIOZh-lG6n9pb1mzdaFHuslh=s2000"
-            className="w-full h-full object-cover scale-105"
+            className="w-full h-full object-cover"
             alt="Kawiarnia Markiza"
           />
         </div>
@@ -148,11 +179,16 @@ export default function App() {
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            <span className="inline-block px-4 py-1 border border-white/30 rounded-full text-xs uppercase tracking-[0.3em] font-medium mb-6">
+            <motion.span 
+              initial={{ opacity: 0, letterSpacing: "0.1em" }}
+              animate={{ opacity: 1, letterSpacing: "0.3em" }}
+              transition={{ delay: 0.2, duration: 1 }}
+              className="inline-block px-4 py-1 border border-white/30 rounded-full text-xs uppercase font-medium mb-6"
+            >
               Zapraszamy do Kawiarni Markiza
-            </span>
+            </motion.span>
             <h2 className="text-6xl md:text-8xl font-serif mb-8 leading-tight">
               Prawdziwe Lody<br />
               <span className="italic">100% Naturalne</span>
@@ -161,28 +197,36 @@ export default function App() {
               Zapraszamy na pyszne ciasta, kawę, koktajle, shaki, torty oraz lody własnej produkcji. Tradycyjny smak w sercu Trzebnicy.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-              <button 
+              <motion.button 
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
                 onClick={() => scrollTo("gallery")}
-                className="px-10 py-4 bg-white text-brand-coffee rounded-full font-bold uppercase tracking-widest text-sm hover:scale-105 transition-transform"
+                className="px-10 py-4 bg-white text-brand-coffee rounded-full font-bold uppercase tracking-widest text-sm shadow-xl"
               >
                 Zobacz Galerię
-              </button>
-              <a 
+              </motion.button>
+              <motion.a 
+                whileHover={{ scale: 1.05, backgroundColor: "rgba(255, 255, 255, 1)", color: "#4a3728" }}
+                whileTap={{ scale: 0.95 }}
                 href="tel:797935378"
-                className="flex items-center gap-2 px-10 py-4 bg-transparent border-2 border-white rounded-full font-bold uppercase tracking-widest text-sm hover:bg-white hover:text-brand-coffee transition-all"
+                className="flex items-center gap-2 px-10 py-4 bg-transparent border-2 border-white rounded-full font-bold uppercase tracking-widest text-sm transition-all"
               >
                 <Phone size={18} /> 797 935 378
-              </a>
+              </motion.a>
             </div>
           </motion.div>
         </div>
-
       </section>
 
       {/* Featured Offers */}
-      <section id="gallery" className="py-32 px-6">
+      <section id="gallery" className="py-32 px-6 overflow-hidden">
         <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
+          <motion.div 
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            className="flex flex-col md:flex-row justify-between items-end mb-20 gap-8"
+          >
             <div className="max-w-xl">
               <span className="text-brand-accent font-bold uppercase tracking-[0.2em] text-xs mb-4 block">Nasza galeria</span>
               <h3 className="text-4xl md:text-5xl font-serif leading-tight">Wyjątkowe smaki, które zostają w pamięci.</h3>
@@ -190,16 +234,31 @@ export default function App() {
             <p className="md:max-w-xs text-sm text-brand-coffee/60 leading-relaxed">
               Każdego dnia przygotowujemy dla Państwa świeże wypieki i lody, dbając o najwyższą jakość składników.
             </p>
-          </div>
+          </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16">
+          <motion.div 
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, margin: "-50px" }}
+            variants={{
+              hidden: { opacity: 0 },
+              show: {
+                opacity: 1,
+                transition: {
+                  staggerChildren: 0.15,
+                  delayChildren: 0.1
+                }
+              }
+            }}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16"
+          >
             {GALLERY_ITEMS.map((item, idx) => (
               <motion.div 
                 key={idx}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: idx * 0.1 }}
+                variants={{
+                  hidden: { opacity: 0, y: 30, scale: 0.95 },
+                  show: { opacity: 1, y: 0, scale: 1 }
+                }}
                 className="group cursor-pointer"
                 onClick={() => setSelectedImage(item.url)}
               >
@@ -211,29 +270,40 @@ export default function App() {
                     referrerPolicy="no-referrer"
                   />
                   <div className="absolute inset-0 bg-brand-coffee/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                    <div className="w-16 h-16 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center text-white border border-white/30">
+                    <motion.div 
+                      whileHover={{ scale: 1.2, rotate: 90 }}
+                      className="w-16 h-16 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center text-white border border-white/30"
+                    >
                       <ChevronRight />
-                    </div>
+                    </motion.div>
                   </div>
                 </div>
-                <h4 className="text-xl font-serif mb-2">{item.title}</h4>
+                <h4 className="text-xl font-serif mb-2 group-hover:text-brand-accent transition-colors">{item.title}</h4>
                 <p className="text-sm text-brand-coffee/70 leading-relaxed">{item.desc}</p>
               </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
       {/* Announcement Section */}
-      <section id="announcements" className="py-32 bg-brand-soft-green/30 px-6">
+      <section id="announcements" className="py-32 bg-brand-soft-green/30 px-6 relative">
         <div className="max-w-4xl mx-auto text-center">
           <motion.div
             initial={{ scale: 0.95, opacity: 0 }}
             whileInView={{ scale: 1, opacity: 1 }}
             viewport={{ once: true }}
+            transition={{ type: "spring", stiffness: 100, damping: 20 }}
             className="p-12 md:p-20 bg-white rounded-[3rem] border border-brand-coffee/5 shadow-2xl shadow-brand-soft-green/50 relative overflow-hidden"
           >
-            <div className="absolute top-0 right-0 w-32 h-32 bg-brand-soft-green/50 blur-3xl -mr-10 -mt-10" />
+            <motion.div 
+              animate={{ 
+                scale: [1, 1.2, 1],
+                opacity: [0.3, 0.5, 0.3]
+              }}
+              transition={{ duration: 4, repeat: Infinity }}
+              className="absolute top-0 right-0 w-32 h-32 bg-brand-soft-green/50 blur-3xl -mr-10 -mt-10" 
+            />
             <div className="relative z-10">
               <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-brand-accent/10 text-brand-accent rounded-full text-xs font-bold uppercase tracking-widest mb-8">
                 <Info size={14} /> Ogłoszenie
@@ -242,122 +312,209 @@ export default function App() {
               <p className="text-xl text-brand-coffee/80 mb-10 leading-relaxed font-light">
                 ZATRUDNIĘ OSOBĘ DO PRACY <br className="hidden md:block"/>W WEEKENDY
               </p>
-              <div className="inline-flex items-center gap-4 p-4 bg-brand-cream border border-brand-coffee/10 rounded-2xl">
-                <Phone className="text-brand-accent" />
+              <motion.div 
+                whileHover={{ scale: 1.05 }}
+                className="inline-flex items-center gap-4 p-4 bg-brand-cream border border-brand-coffee/10 rounded-2xl cursor-pointer"
+              >
+                <Phone className="text-brand-accent animate-pulse" />
                 <div className="text-left">
                   <p className="text-[10px] uppercase font-bold text-brand-coffee/50">Kontakt w sprawie pracy</p>
                   <p className="text-lg font-bold">603 262 837</p>
                 </div>
-              </div>
+              </motion.div>
             </div>
           </motion.div>
         </div>
       </section>
 
       {/* Info Grid */}
-      <section id="hours" className="py-32 px-6 bg-brand-coffee text-brand-cream">
-        <div className="max-w-7xl mx-auto">
+      <section id="hours" className="py-32 px-6 bg-brand-coffee text-brand-cream relative overflow-hidden">
+        {/* Animated accent lines */}
+        <div className="absolute inset-0 opacity-10 pointer-events-none">
+          {[...Array(5)].map((_, i) => (
+            <motion.div 
+              key={i}
+              initial={{ x: "-100%" }}
+              animate={{ x: "200%" }}
+              transition={{ duration: 15 + i * 2, repeat: Infinity, ease: "linear", delay: i * 3 }}
+              className="h-px w-1/2 bg-gradient-to-r from-transparent via-brand-soft-green to-transparent mt-[20vh]"
+              style={{ top: `${i * 20}%` }}
+            />
+          ))}
+        </div>
+
+        <div className="max-w-7xl mx-auto relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
             <div>
-              <span className="text-brand-soft-green font-bold uppercase tracking-[0.2em] text-xs mb-6 block">Kiedy nas odwiedzić?</span>
-              <h3 className="text-5xl md:text-6xl font-serif mb-12">Godziny otwarcia</h3>
+              <motion.span 
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="text-brand-soft-green font-bold uppercase tracking-[0.2em] text-xs mb-6 block"
+              >
+                Kiedy nas odwiedzić?
+              </motion.span>
+              <motion.h3 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="text-5xl md:text-6xl font-serif mb-12"
+              >
+                Godziny otwarcia
+              </motion.h3>
               
-              <div className="space-y-4">
+              <motion.div 
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true }}
+                variants={{
+                  hidden: { opacity: 0 },
+                  show: {
+                    opacity: 1,
+                    transition: {
+                      staggerChildren: 0.1
+                    }
+                  }
+                }}
+                className="space-y-4"
+              >
                 {OPENING_HOURS.map((item, idx) => (
-                  <div key={idx} className="flex justify-between items-center py-4 border-b border-brand-cream/10 group hover:border-brand-soft-green transition-colors">
-                    <span className="text-lg font-serif">{item.day}</span>
+                  <motion.div 
+                    key={idx} 
+                    variants={{
+                      hidden: { opacity: 0, x: -10 },
+                      show: { opacity: 1, x: 0 }
+                    }}
+                    className="flex justify-between items-center py-4 border-b border-brand-cream/10 group hover:border-brand-soft-green transition-colors"
+                  >
+                    <span className="text-lg font-serif group-hover:translate-x-2 transition-transform duration-300">{item.day}</span>
                     <span className={idx >= 5 ? "font-bold text-brand-soft-green" : "opacity-70"}>{item.hours}</span>
-                  </div>
+                  </motion.div>
                 ))}
-              </div>
+              </motion.div>
 
-              <div className="mt-16 p-8 bg-brand-cream/5 rounded-[2rem] border border-brand-cream/10">
+              <motion.div 
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="mt-16 p-8 bg-brand-cream/5 rounded-[2rem] border border-brand-cream/10"
+              >
                 <div className="flex items-center gap-6">
-                  <div className="w-16 h-16 bg-brand-soft-green rounded-2xl flex items-center justify-center text-brand-coffee">
+                  <motion.div 
+                    animate={{ rotate: 360 }}
+                    transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                    className="w-16 h-16 bg-brand-soft-green rounded-2xl flex items-center justify-center text-brand-coffee"
+                  >
                     <Clock size={32} />
-                  </div>
+                  </motion.div>
                   <div>
                     <h4 className="text-xl font-serif mb-1">Pyszne śniadania i desery</h4>
                     <p className="text-sm opacity-60">Zacznij dzień z naszą kawą i świeżymi rogalikami.</p>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             </div>
 
             <div className="relative aspect-square">
-              <div className="absolute inset-0 bg-brand-accent/20 rounded-[3rem] rotate-3" />
-              <img 
+              <motion.div 
+                animate={{ rotate: [3, 4, 3] }}
+                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                className="absolute inset-0 bg-brand-accent/20 rounded-[3rem]" 
+              />
+              <motion.img 
+                initial={{ scale: 1.1, rotate: -5 }}
+                whileInView={{ scale: 1, rotate: -3 }}
+                transition={{ duration: 1.2 }}
+                viewport={{ once: true }}
                 src="https://scontent-waw2-2.xx.fbcdn.net/v/t39.30808-6/675080680_1590056499786227_8770093856200927578_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=7b2446&_nc_ohc=Jd2X3y6tozQQ7kNvwHI6Ds0&_nc_oc=Adrh86TG3j1n93zUkfHNkXhKkPHnDIT8y7NYlFwtBY0lb9pLURo2LhGeYlMnPoePiEE&_nc_zt=23&_nc_ht=scontent-waw2-2.xx&_nc_gid=ve75c3jiAJ2uqWcnpf5P0Q&_nc_ss=7b2a8&oh=00_Af0ox2tsm2OmMulhHThEM60e00gBOVjSXSWpx1Ymg_nyyg&oe=69F5024A" 
-                className="absolute inset-0 w-full h-full object-cover rounded-[3rem] -rotate-3 hover:rotate-0 transition-transform duration-700"
+                className="absolute inset-0 w-full h-full object-cover rounded-[3rem] hover:rotate-0 transition-transform duration-700"
                 alt="Wnętrze Kawiarni Markiza"
                 referrerPolicy="no-referrer"
               />
-              <div className="absolute bottom-10 -right-10 bg-white p-8 rounded-[2rem] text-brand-coffee shadow-2xl hidden md:block max-w-xs">
+              <motion.div 
+                initial={{ opacity: 0, x: 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.5 }}
+                className="absolute bottom-10 -right-10 bg-white p-8 rounded-[2rem] text-brand-coffee shadow-2xl hidden md:block max-w-xs"
+              >
                 <IceCream className="text-brand-accent mb-4" />
                 <p className="font-serif italic text-lg leading-snug">"Nasze lody własnej produkcji to powrót do natury i prawdziwego smaku."</p>
-              </div>
+              </motion.div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Map & Contact */}
-      <section id="contact" className="py-32 px-6">
+      <section id="contact" className="py-32 px-6 overflow-hidden">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
             <div className="lg:col-span-5 space-y-12">
-              <div>
+              <motion.div
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+              >
                 <h3 className="text-4xl font-serif mb-8 text-brand-coffee">Znajdź nas w Trzebnicy</h3>
                 <div className="space-y-8">
-                  <div className="flex items-start gap-4">
-                    <div className="p-3 bg-brand-accent/10 rounded-xl text-brand-accent">
-                      <MapPin />
-                    </div>
-                    <div>
-                      <p className="text-xs uppercase font-bold text-brand-coffee/40 mb-1">Adres</p>
-                      <p className="text-lg">ul. Ks. Dz. W. Bochenka 49,<br />Trzebnica 55-100</p>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-start gap-4">
-                    <div className="p-3 bg-brand-accent/10 rounded-xl text-brand-accent">
-                      <Phone />
-                    </div>
-                    <div>
-                      <p className="text-xs uppercase font-bold text-brand-coffee/40 mb-1">Zadzwoń do nas</p>
-                      <p className="text-lg font-bold">797 935 378</p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start gap-4">
-                    <div className="p-3 bg-brand-accent/10 rounded-xl text-brand-accent">
-                      <Mail />
-                    </div>
-                    <div>
-                      <p className="text-xs uppercase font-bold text-brand-coffee/40 mb-1">Napisz e-mail</p>
-                      <p className="text-lg border-b border-brand-coffee/20 pb-1">kawiarnia.markiza@gmail.com</p>
-                    </div>
-                  </div>
+                  {[
+                    { icon: <MapPin />, label: "Adres", value: <>ul. Ks. Dz. W. Bochenka 49,<br />Trzebnica 55-100</> },
+                    { icon: <Phone />, label: "Zadzwoń do nas", value: "797 935 378" },
+                    { icon: <Mail />, label: "Napisz e-mail", value: "kawiarnia.markiza@gmail.com" }
+                  ].map((item, idx) => (
+                    <motion.div 
+                      key={idx}
+                      whileHover={{ x: 10 }}
+                      className="flex items-start gap-4 transition-transform"
+                    >
+                      <div className="p-3 bg-brand-accent/10 rounded-xl text-brand-accent">
+                        {item.icon}
+                      </div>
+                      <div>
+                        <p className="text-xs uppercase font-bold text-brand-coffee/40 mb-1">{item.label}</p>
+                        <p className={idx === 2 ? "text-lg border-b border-brand-coffee/20 pb-1" : "text-lg font-bold"}>
+                          {item.value}
+                        </p>
+                      </div>
+                    </motion.div>
+                  ))}
                 </div>
-              </div>
+              </motion.div>
 
-              <div className="p-10 bg-blue-50 rounded-[2rem] border border-blue-100">
-                <h4 className="text-xl font-bold text-blue-900 mb-4 flex items-center gap-2">
-                  <Facebook /> Odwiedź nas na Facebooku
-                </h4>
-                <p className="text-blue-800/70 mb-8 text-sm">Bądź na bieżąco z naszymi nowościami, promocjami i ofertami sezonowymi.</p>
-                <a 
-                  href="https://www.facebook.com/kawiarnia.markiza" 
-                  target="_blank" 
-                  rel="noreferrer"
-                  className="inline-flex items-center gap-2 px-8 py-3 bg-blue-600 text-white rounded-full font-bold text-sm tracking-widest hover:bg-blue-700 transition-colors uppercase"
-                >
-                  Facebook <ExternalLink size={14} />
-                </a>
-              </div>
+              <motion.div 
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="p-10 bg-blue-50 rounded-[2rem] border border-blue-100 relative overflow-hidden"
+              >
+                <div className="relative z-10">
+                  <h4 className="text-xl font-bold text-blue-900 mb-4 flex items-center gap-2">
+                    <Facebook /> Odwiedź nas na Facebooku
+                  </h4>
+                  <p className="text-blue-800/70 mb-8 text-sm">Bądź na bieżąco z naszymi nowościami, promocjami i ofertami sezonowymi.</p>
+                  <motion.a 
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    href="https://www.facebook.com/kawiarnia.markiza" 
+                    target="_blank" 
+                    rel="noreferrer"
+                    className="inline-flex items-center gap-2 px-8 py-3 bg-blue-600 text-white rounded-full font-bold text-sm tracking-widest hover:bg-blue-700 transition-colors uppercase shadow-lg shadow-blue-500/30"
+                  >
+                    Facebook <ExternalLink size={14} />
+                  </motion.a>
+                </div>
+                {/* Decorative facebook icon background */}
+                <Facebook className="absolute bottom-0 right-0 w-32 h-32 -mb-10 -mr-10 text-blue-200 opacity-20" />
+              </motion.div>
             </div>
 
-            <div className="lg:col-span-7 h-[500px] lg:h-auto min-h-[400px] map-container">
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              className="lg:col-span-7 h-[500px] lg:h-auto min-h-[400px] map-container shadow-2xl shadow-brand-coffee/10"
+            >
               <iframe 
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d311.76724080504795!2d17.064846095756774!3d51.3085867145127!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470ff25bd15a4251%3A0x75319b161cfb7b!2sMarkiza!5e0!3m2!1spl!2spl!4v1777285980812!5m2!1spl!2spl" 
                 width="100%" 
@@ -367,10 +524,11 @@ export default function App() {
                 loading="lazy" 
                 referrerPolicy="no-referrer-when-downgrade"
               />
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>
+
 
       {/* Footer */}
       <footer className="py-20 border-t border-brand-coffee/10 px-6">
