@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Inter:wght@100..900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Playfair Display", serif;
+  --font-sans: "Inter", sans-serif;
+  
+  --color-brand-cream: #fcfaf7;
+  --color-brand-coffee: #4a3728;
+  --color-brand-accent: #8b7355;
+  --color-brand-soft-green: #e9edc9;
+}
+
+@layer base {
+  body {
+    @apply bg-brand-cream text-brand-coffee font-sans antialiased;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif;
+  }
+}
+
+.pill-mask {
+  border-radius: 9999px;
+}
+
+.map-container iframe {
+  width: 100%;
+  height: 100%;
+  border-radius: 1.5rem;
+}
