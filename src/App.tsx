@@ -144,7 +144,7 @@ export default function App() {
       </AnimatePresence>
 
       {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden pt-20">
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-28 pb-12">
         {/* Floating background elements */}
         <motion.div 
           animate={{ 
@@ -189,11 +189,11 @@ export default function App() {
             >
               Zapraszamy do Kawiarni Markiza
             </motion.span>
-            <h2 className="text-6xl md:text-8xl font-serif mb-8 leading-tight">
+            <h2 className="text-4xl sm:text-6xl md:text-8xl font-serif mb-6 md:mb-8 leading-tight">
               Prawdziwe Lody<br />
               <span className="italic">100% Naturalne</span>
             </h2>
-            <p className="max-w-2xl mx-auto text-lg md:text-xl text-white/90 mb-12 font-light leading-relaxed">
+            <p className="max-w-2xl mx-auto text-sm sm:text-lg md:text-xl text-white/90 mb-10 md:mb-12 font-light leading-relaxed">
               Zapraszamy na pyszne ciasta, kawę, koktajle, shaki, torty oraz lody własnej produkcji. Tradycyjny smak w sercu Trzebnicy.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
