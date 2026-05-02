@@ -23,42 +23,42 @@ import { useState } from "react";
 
 const GALLERY_ITEMS = [
   {
-    url: "https://scontent-waw2-1.xx.fbcdn.net/v/t39.30808-6/683649875_1595579829233894_4824534407266987017_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=7b2446&_nc_ohc=0Zv_pN3ZKCQQ7kNvwEQfiK8&_nc_oc=AdomWi5NoWFSHBfl-m1kfOgg_JUoDvbv6eIZrTXES-mnoxVT_e-P7M_rnV4GRD_XeLQ&_nc_zt=23&_nc_ht=scontent-waw2-1.xx&_nc_gid=GveGEYHg6izDxn-Pe9-JbQ&_nc_ss=7b2a8&oh=00_Af2bQjuJmLAwrEfeMBcMEYU1cZpebHK1hruoeHXCjmIp5Q&oe=69F5088A",
+    url: "https://scontent-waw2-1.xx.fbcdn.net/v/t39.30808-6/683649875_1595579829233894_4824534407266987017_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=7b2446&_nc_ohc=StNkfrWI6_sQ7kNvwFM0A3K&_nc_oc=Adrsj7n1yHxhX89HhexauCLBJyeHks__0QRTHd_nrQidpg-Q1qbXzdQrzp4Yf_dAHB4&_nc_zt=23&_nc_ht=scontent-waw2-1.xx&_nc_gid=onxxC7bAk0gXZ3aJuSvQDQ&_nc_ss=7b2a8&oh=00_Af6halW0aYSsKzWpmZ3XBKTTyKzfVZGMNr7BazSkBpsrDQ&oe=69FBA00A",
     desc: "Lemonade Espresso to orzeźwiająca kawa z syropem cytrynowym i świeżą cytryną 🍋",
     title: "Lemonade Espresso"
   },
   {
-    url: "https://scontent-waw2-2.xx.fbcdn.net/v/t39.30808-6/681260477_1594658669326010_2498717466957861456_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=7b2446&_nc_ohc=Zh81AClUxLkQ7kNvwEbflZ3&_nc_oc=AdoEajHzcXeWc2x9BJM1GKy7F-HBrXTWwZjNXNNdlKb65pUx7intm_fDxpZcyR5hvWo&_nc_zt=23&_nc_ht=scontent-waw2-2.xx&_nc_gid=3ZeRW91bCTQd4EnfmBLnbA&_nc_ss=7b2a8&oh=00_Af0EFMLa3G_7LpXTscHYD9E4YKgq5ghbWRed_9el-CgQ8g&oe=69F51E07",
+    url: "https://scontent-waw2-2.xx.fbcdn.net/v/t39.30808-6/681260477_1594658669326010_2498717466957861456_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=7b2446&_nc_ohc=Bqf9Q7CF-3QQ7kNvwH6UEIM&_nc_oc=AdrOnp6nFySSRDYPjyGD-ZYJ04jpH7y893zZ7LsRY147d_poKDLnq9QTqhp2jkGbbKU&_nc_zt=23&_nc_ht=scontent-waw2-2.xx&_nc_gid=oLVBfpX6yYaWOZJKsi9JAg&_nc_ss=7b2a8&oh=00_Af7fy4y-w0LJDEbtWijPqp9Lowp_F3kME92wfXNFS0vl0A&oe=69FB7D47",
     desc: "Na zdjęciu gofr z konfiturą jagodową, bitą śmietaną oraz świeżymi owocami. 🍓To u Nas skomponujesz gofra takiego jak lubisz!",
     title: "Gofry z Owocami"
   },
   {
-    url: "https://scontent-waw2-2.xx.fbcdn.net/v/t39.30808-6/682928931_1594589659332911_7032648028340143929_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=7b2446&_nc_ohc=LhKD9-EtccUQ7kNvwHgCFFU&_nc_oc=AdqQZrczWIriurzEA8shIkukbKvP04NVYwh25jhI8Q3H9VogYzSe19xjk1fucvEbK-E&_nc_zt=23&_nc_ht=scontent-waw2-2.xx&_nc_gid=o-cTfuQycdEEoLJs7wrxgA&_nc_ss=7b2a8&oh=00_Af2mq8u1N8zPmn-_40a-dUWXcw55ZqtVqksVsQHppscJfg&oe=69F52466",
+    url: "https://scontent-waw2-2.xx.fbcdn.net/v/t39.30808-6/682928931_1594589659332911_7032648028340143929_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=7b2446&_nc_ohc=l8kWK13iRrwQ7kNvwEIqU1L&_nc_oc=AdqeHsgFbk9qFab706rqr7EdQyY3HK6ZeyrPCULUQ7R-_pMC9cZYIOUn4EfpJfOY-Fs&_nc_zt=23&_nc_ht=scontent-waw2-2.xx&_nc_gid=gcL8ipmeU6s2WJZY9IvlYQ&_nc_ss=7b2a8&oh=00_Af7PVo8tAxMQzAlakB_qBxQq4rrq12KkGghM6-Wpr0YPnw&oe=69FB83A6",
     desc: "Sernik na gorąco z Malinami 😋 Gorący sernik, sos malinowy i sos czekoladowy oraz gałki lodów waniliowych i świeże owoce idealnie umilą niedzielne popołudnie",
     title: "Sernik na gorąco"
   },
   {
-    url: "https://scontent-waw2-1.xx.fbcdn.net/v/t39.30808-6/679424369_1592785366180007_1638724006973957729_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=7b2446&_nc_ohc=fI-SZwUMk_MQ7kNvwEdYaIg&_nc_oc=Adogum8C19js3E3TuBqEsjHrIotQaxv2LGS2eKmm4pqJxmYGbRay6_k5oO1ITtyjuyo&_nc_zt=23&_nc_ht=scontent-waw2-1.xx&_nc_gid=rOahe7pQYSHjBYdBjRueCQ&_nc_ss=7b2a8&oh=00_Af25HvTQX7hhoNc6a7ba3yj2M9g9viEob7X2bZOO8F5jRQ&oe=69F5208C",
+    url: "https://scontent-waw2-1.xx.fbcdn.net/v/t39.30808-6/679424369_1592785366180007_1638724006973957729_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=7b2446&_nc_ohc=dUdVSx8ADsEQ7kNvwGLWnYb&_nc_oc=AdrDvbUtkgXkb-uD8fDZ8iSm20yLuG6AJuhvqxzi0jNy0y9CC-Q5LsBAWOlM88Lobi8&_nc_zt=23&_nc_ht=scontent-waw2-1.xx&_nc_gid=Xf5xGms2UIOZMZEpMQoEpQ&_nc_ss=7b2a8&oh=00_Af6L-fHtlUko8E1kuWJA61bsBfpGRtna3rFNi5hWoefmGg&oe=69FB7FCC",
     desc: "Rogaliki Drożdżowe z Jagodą",
     title: "Rogaliki Drożdżowe"
   },
   {
-    url: "https://scontent-waw2-2.xx.fbcdn.net/v/t39.30808-6/678536988_1590885323036678_4262863280828019116_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=7b2446&_nc_ohc=4byh5myejPUQ7kNvwFdJE5h&_nc_oc=Adq2PD5fRxhlA36epzgbCnsRv20YKuok4y_uG2OZ5Tfyp8CqopJGimfHGUWTnOvi1eA&_nc_zt=23&_nc_ht=scontent-waw2-2.xx&_nc_gid=hfX_9TTFbvZRJUHFX_U-6A&_nc_ss=7b2a8&oh=00_Af3uaN38OC8bIRBDleEn7-OiF3zpcEWE5rT5OnsSIB8fQQ&oe=69F51CAB",
+    url: "https://scontent-waw2-2.xx.fbcdn.net/v/t39.30808-6/678536988_1590885323036678_4262863280828019116_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=7b2446&_nc_ohc=I2eihluaimkQ7kNvwELCYwG&_nc_oc=AdrBgfVZBsG8yTPF55-4PCwsS9wfQA2SpfExsAh66_NR0PbEgbpqRsnhiIox-V1zdz8&_nc_zt=23&_nc_ht=scontent-waw2-2.xx&_nc_gid=bSJY38cIMbQ9Ygrau6_UoQ&_nc_ss=7b2a8&oh=00_Af6TdGh5EyU5-DS_1RivTAY5v5qFmkbABXqyrKTK5F03og&oe=69FB7BEB",
     desc: "W ofercie wiosennej pojawiła się również Nasza kultowa kawa mrożona Kawa mrożona jest na bazie jednej dawki espresso oraz mleka bez laktozy. Dodatkiem jest polewa czekoladowa i karmelowa, gałka loda waniliowego, bita śmietana oraz słodkie dodatki!😋",
     title: "Kawa Mrożona"
   },
   {
-    url: "https://scontent-waw2-1.xx.fbcdn.net/v/t39.30808-6/675038926_1590889396369604_8198700547446750299_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=7b2446&_nc_ohc=pXzw29mkbNsQ7kNvwG_DHsE&_nc_oc=AdrbKdxrdAGq6r39h2PURFHW4sH6Ao6qaC7OOmGmCoJcZpa5zUpidbyopNSu6d4n0e4&_nc_zt=23&_nc_ht=scontent-waw2-1.xx&_nc_gid=iuvX6zSMyJY-7qndzQNQow&_nc_ss=7b2a8&oh=00_Af3Qm2uyS6KKJCxE_u8OyA9-7BDmo9ZzZNZyHJPZjFpYTw&oe=69F502F9",
+    url: "https://scontent-waw2-1.xx.fbcdn.net/v/t39.30808-6/675222681_1590886029703274_7093111006965015298_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=7b2446&_nc_ohc=tvQbcEZFOzIQ7kNvwGKkIQW&_nc_oc=AdqzjZCx2peylEe1rKZOZzVG3webHlK9R7Uz7d3tYSqbX67iD5YYTSPRFGJTD1uYPbA&_nc_zt=23&_nc_ht=scontent-waw2-1.xx&_nc_gid=G5RBCnX5b9fufleM2ACvkg&_nc_ss=7b2a8&oh=00_Af5usa8OXO6gd8BLuh5CacPobDxY40ONmfzbKKu5a76URA&oe=69FB85F1",
     desc: "Nasze pyszne słodkości zapraszają!",
     title: "Słodkie Momenty"
   },
   {
-    url: "https://scontent-waw2-1.xx.fbcdn.net/v/t39.30808-6/675222681_1590886029703274_7093111006965015298_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=7b2446&_nc_ohc=0jYBa9zKl9UQ7kNvwFqvyPb&_nc_oc=Adq-n0UxX_ZpuId9uDIH_--FSDJmTq0Kn9jPuNANg8PGal12Qrdpny4HYJ2hfOhk_IM&_nc_zt=23&_nc_ht=scontent-waw2-1.xx&_nc_gid=jNIgs0qsVqiKqE6FHZzXVw&_nc_ss=7b2a8&oh=00_Af2o_3Loc8sxylUVkvp-wbt_YiXYziHdAE6JMV_9sKpBYg&oe=69F526B1",
+    url: "https://scontent-waw2-2.xx.fbcdn.net/v/t39.30808-6/672682216_1587245350067342_486552425365630953_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=7b2446&_nc_ohc=aSCYqwpdUH8Q7kNvwH6LnRr&_nc_oc=AdokDcIPwDbCvbnH7oyxmJEO3nhRZdTUPMjV5xhVLhRlsvScwr6kKf5I-HetB9pOHN8&_nc_zt=23&_nc_ht=scontent-waw2-2.xx&_nc_gid=BwSbNOs03fimh-vTJ9A19Q&_nc_ss=7b2a8&oh=00_Af7sjVu_2PB5Tt6k5de72dAYkCqSlDanEl1CYwSAIpnKrQ&oe=69FB9607",
     desc: "Torty na każdą okazję",
     title: "Nasze Wypieki"
   },
   {
-    url: "https://scontent-waw2-1.xx.fbcdn.net/v/t39.30808-6/673637581_1590885869703290_879129294985415209_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=7b2446&_nc_ohc=YrytqgXZ2EQQ7kNvwEd-whG&_nc_oc=AdoBi0mMqMF8ASFzRudTm1XnXRYpw5Vu-yp-rZmuMTlwskZwOY0f4fzOsN-24LRJtXA&_nc_zt=23&_nc_ht=scontent-waw2-1.xx&_nc_gid=_GWijjvq9fWBakGtV7G3_w&_nc_ss=7b2a8&oh=00_Af3OLd84Wgg_nyn61L3NUxK978MIaJ2BpxiORYDAEWjYXA&oe=69F50635",
+    url: "https://scontent-waw2-1.xx.fbcdn.net/v/t39.30808-6/676786595_1590056146452929_5537226416910282120_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=7b2446&_nc_ohc=lbjrTpdMw8kQ7kNvwHdtCZr&_nc_oc=Adr50QcDCmevnBYjZiudoNBkbLoJf3M3Q-lslzZbJUDcccHephzC3fvMt31gow8aFTs&_nc_zt=23&_nc_ht=scontent-waw2-1.xx&_nc_gid=3CF_iZNNOyctrDOynWk-xw&_nc_ss=7b2a8&oh=00_Af6Xe8TIsTlDxQO9Ny367VL8AAa__tLm3bk-SWnyf52-7Q&oe=69FBA476",
     desc: "Idealne desery lodowe",
     title: "Lody Naturalne"
   }
@@ -426,7 +426,7 @@ export default function App() {
                 whileInView={{ scale: 1, rotate: -3 }}
                 transition={{ duration: 1.2 }}
                 viewport={{ once: true }}
-                src="https://scontent-waw2-2.xx.fbcdn.net/v/t39.30808-6/675080680_1590056499786227_8770093856200927578_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=7b2446&_nc_ohc=Jd2X3y6tozQQ7kNvwHI6Ds0&_nc_oc=Adrh86TG3j1n93zUkfHNkXhKkPHnDIT8y7NYlFwtBY0lb9pLURo2LhGeYlMnPoePiEE&_nc_zt=23&_nc_ht=scontent-waw2-2.xx&_nc_gid=ve75c3jiAJ2uqWcnpf5P0Q&_nc_ss=7b2a8&oh=00_Af0ox2tsm2OmMulhHThEM60e00gBOVjSXSWpx1Ymg_nyyg&oe=69F5024A" 
+                src="https://scontent-waw2-1.xx.fbcdn.net/v/t39.30808-6/676786595_1590056146452929_5537226416910282120_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=7b2446&_nc_ohc=lbjrTpdMw8kQ7kNvwHdtCZr&_nc_oc=Adr50QcDCmevnBYjZiudoNBkbLoJf3M3Q-lslzZbJUDcccHephzC3fvMt31gow8aFTs&_nc_zt=23&_nc_ht=scontent-waw2-1.xx&_nc_gid=3CF_iZNNOyctrDOynWk-xw&_nc_ss=7b2a8&oh=00_Af6Xe8TIsTlDxQO9Ny367VL8AAa__tLm3bk-SWnyf52-7Q&oe=69FBA476" 
                 className="absolute inset-0 w-full h-full object-cover rounded-[3rem] hover:rotate-0 transition-transform duration-700"
                 alt="Wnętrze Kawiarni Markiza"
                 referrerPolicy="no-referrer"
